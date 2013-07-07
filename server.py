@@ -4,6 +4,11 @@ from rq import Queue
 from redis import Redis
 from flask import Flask, request
 
+import os
+abspath = os.path.abspath(__file__)
+dirname = os.path.dirname(abspath)
+os.chdir(dirname)
+
 app = Flask(__name__)
 queue = Queue(connection=Redis())
 

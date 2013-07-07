@@ -2,6 +2,11 @@ import httplib
 import database
 import logging
 
+import os
+abspath = os.path.abspath(__file__)
+dirname = os.path.dirname(abspath)
+os.chdir(dirname)
+
 logging.basicConfig(filename='logs/worker.log', level=logging.DEBUG)
 connection = database.Connection()
 

@@ -93,6 +93,12 @@ class services {
     ensure => running,
     require => [File['/etc/init/rqueue.conf'], Class['backend'] ]
   }
+  cron {'reload':
+    command => '',
+    user => $machine_user,
+    minute => '*',
+    hour => '*'
+  }
 }
 
 class utils{

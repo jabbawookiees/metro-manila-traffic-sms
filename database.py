@@ -1,6 +1,11 @@
 import sqlite3
 import logging
 
+import os
+abspath = os.path.abspath(__file__)
+dirname = os.path.dirname(abspath)
+os.chdir(dirname)
+
 class Connection:
     def __init__(self, database='sqlite3.db'):
         self.connection = sqlite3.connect(database)

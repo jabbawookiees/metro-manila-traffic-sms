@@ -4,7 +4,12 @@ import httplib
 import logging
 import database
 
-logging.basicConfig(filename='logs/cron.log', level=logging.DEBUG)
+import os
+abspath = os.path.abspath(__file__)
+dirname = os.path.dirname(abspath)
+os.chdir(dirname)
+
+logging.basicConfig(filename='logs/cron.log', level=logging.ERROR)
 
 collections = [
     [ 
@@ -238,7 +243,6 @@ def generate_messages():
             strings.append('\n')
         message = '\n'.join(strings).strip()
         messages.append({'pk': pk, 'data': message})
-        print message, '\n'
     logging.debug('Generated messages!')
     return messages
 
