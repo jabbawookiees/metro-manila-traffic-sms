@@ -33,8 +33,8 @@ def receive_message():
 
     amount = float(match.group(1))
     number = match.group(2)
-    if amount < 1:
-        return 'Nobody cares about you, cheapskate. %f'%amount
+    if amount < 5:
+        return 'Nobody cares about you, cheapskate.'
 
     for pk in xrange(0,5):
         queue.enqueue(runner.send_message, number, pk)
