@@ -94,7 +94,7 @@ class services {
     require => [File['/etc/init/rqueue.conf'], Class['backend'] ]
   }
   cron {'reload':
-    command => '',
+    command => '/usr/bin/python /home/user/traffic/cron.py',
     user => $machine_user,
     minute => '*',
     hour => '*'
