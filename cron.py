@@ -7,14 +7,29 @@ import database
 logging.basicConfig(filename='logs/cron.log', level=logging.DEBUG)
 
 collections = [
-    [{'name': 'EDSA',        'nodes': [2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34]}],
-    [{'name': 'QAve&Espana', 'nodes': [39,41,43,45,47,49,51,53,55,57,59,61,63,65,67,69,71]}],
-    [{'name': 'C5',          'nodes': [73,75,77,79,131,133,135,137,139]}],
-    [{'name': 'Ortgs',       'nodes': [117,119,121,123,125,127,129]}],
-    [{'name': 'Cstal Rd',    'nodes': [82,84,86,88,89,91]}],
-    [{'name': 'SLEX',        'nodes': [93,141,96]}],
-    [{'name': 'Cmnwlth',     'nodes': [99,101,103,105,107]}],
-    [{'name': 'Mrcs Hwy',    'nodes': [110,112,114]}]
+    [ 
+      {
+        'name': 'EDSA1',       
+        'nodes': [2,4,6,8,10,12,14,16,18,20,22,24,26,28,30]
+      }
+    ],
+    [ 
+      {'name': 'EDSA2',       'nodes': [32,34,35,37]},
+      {'name': 'Mrcs Hwy',    'nodes': [110,112,114]},
+      {'name': 'Espana',      'nodes': [65,67,69,71]},
+    ],
+    [
+      {'name': 'QAve',        'nodes': [39,41,43,45,47,49,51,55,57,59,61,63]},
+      {'name': 'SLEX',        'nodes': [93,141,96]},
+    ],
+    [
+      {'name': 'C5',          'nodes': [73,75,77,79,131,133,135,137,139]},
+      {'name': 'Cmnwlth',     'nodes': [99,101,103,105,107]},
+    ],
+    [
+      {'name': 'Ortgs',       'nodes': [117,119,121,123,125,127,129]},
+      {'name': 'Cstal Rd',    'nodes': [82,84,86,88,89,91]},
+    ],
 ]
 
 names = {
@@ -103,9 +118,9 @@ names = {
      83: u"Bclrn",
      84: u"EdsaExt",
      85: u"Buendia",
-     86: u"POcampo",
+     86: u"POcmpo",
      87: u"Quirno",
-     88: u"RjSulaymn",
+     88: u"RjSlyman",
      89: u"UNAve",
      90: u"FnanceRd",
      91: u"AndaCircl",
@@ -136,7 +151,7 @@ names = {
     116: u"Sntolan",
     117: u"Mdison",
     118: u"Roosvlt",
-    119: u"Clb Filpno",
+    119: u"ClbnFilpno",
     120: u"Wilsn",
     121: u"Cnnctcut",
     122: u"LaSalle",
@@ -144,7 +159,7 @@ names = {
     124: u"EDSAShrine",
     125: u"SnMig Ave",
     126: u"Mralco Ave",
-    127: u"Med Cty",
+    127: u"MedCty",
     128: u"Lnuza",
     129: u"GrnMdws",
     130: u"C5Flyvr",

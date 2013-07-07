@@ -7,8 +7,7 @@ from flask import Flask, request
 app = Flask(__name__)
 queue = Queue(connection=Redis())
 
-#globe = re.compile(r'You have just been shared P([0-9]+\.?[0-9]*) by (.+)\.')
-globe = re.compile(r'([0-9]+)-(.+)')
+globe = re.compile(r'You have just been shared P([0-9]+\.?[0-9]*) by (.+)\.')
 
 @app.route('/', strict_slashes=False)
 def receive_message():
@@ -32,7 +31,7 @@ def receive_message():
     if amount < 1:
         return 'Nobody cares about you, cheapskate. %f'%amount
 
-    for pk in xrange(1,6):
+    for pk in xrange(0,5):
         queue.enqueue(runner.send_message, number, pk)
 
     return 'Well I care about you.'
