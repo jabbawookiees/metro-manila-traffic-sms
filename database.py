@@ -12,8 +12,8 @@ class Connection:
         logging.info('Closed database')
 
     def get_message(self, pk):
-        self.cursor.execute('SELECT data FROM messages WHERE pk=?', pk)
-        return self.cursor.fetchone()
+        self.cursor.execute('SELECT data FROM messages WHERE pk=?', (pk,) )
+        return self.cursor.fetchone()[0]
 
     def update_messages(self, messages):
       for msg in messages:

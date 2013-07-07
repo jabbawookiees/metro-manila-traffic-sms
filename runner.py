@@ -9,7 +9,7 @@ def send_message(number, pk):
     logging.debug('Working %d for %s' % (pk,number) )
     message = connection.get_message(pk)
     headers = {
-        'X-Kannel-Username': 'transit',
+        'X-Kannel-Username': 'traffic',
         'X-Kannel-Password': 'ThisIsMySecretKannelPassword',
         #'X-Kannel-SMSC': 'globetattoo',
         'X-Kannel-SMSC': 'fakesmsc',

@@ -5,7 +5,7 @@
 sqlite3.db
 
 # Ignore log file
-*.logs
+*.log
 logs/*
 
 # Ignore compiled files

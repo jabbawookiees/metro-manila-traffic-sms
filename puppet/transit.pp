@@ -1,10 +1,10 @@
 $env = 'development'
 if $env == 'development' {
-  $config_dir = '/home/user/corgi/puppet/configs'
+  $config_dir = '/home/user/traffic/puppet/configs'
   $machine_user = 'user'
   $machine_group = 'user'
 } elsif $env == 'production' {
-  $config_dir = '/home/user/corgi/puppet/configs'
+  $config_dir = '/home/user/traffic/puppet/configs'
   $machine_user = 'user'
   $machine_group = 'user'
 }
@@ -53,7 +53,7 @@ class kannel {
   }
 }
 
-class python {
+class backend {
   package {'python2.7': }
   package {'python-dev': }
   package {'python-pip':
@@ -75,23 +75,23 @@ class python {
 }
 
 class services {
-  file {'/etc/init/transit-backend.conf':
-    content => template("$config_dir/init/transit-backend.conf"),
+  file {'/etc/init/flask.conf':
+    content => template("$config_dir/init/flask.conf"),
     owner => 'root',
     group => 'root'
   }
-  service {'transit-backend':
+  service {'flask':
     ensure => running,
-    require => [File['/etc/init/transit-backend.conf'], Class['backend'] ]
+    require => [File['/etc/init/flask.conf'], Class['backend'] ]
   }
-  file {'/etc/init/transit-queue.conf':
-    content => template("$config_dir/init/transit-queue.conf"),
+  file {'/etc/init/rqueue.conf':
+    content => template("$config_dir/init/rqueue.conf"),
     owner => 'root',
     group => 'root'
   }
-  service {'transit-queue':
+  service {'rqueue':
     ensure => running,
-    require => [File['/etc/init/transit-queue.conf'], Class['backend'] ]
+    require => [File['/etc/init/rqueue.conf'], Class['backend'] ]
   }
 }
 
@@ -103,13 +103,13 @@ class utils{
 case $env {
   'development': {
     class {'kannel': }
-    class {'python': }
+    class {'backend': }
     class {'services': }
     class {'utils': }
   }
   'production': {
     class {'kannel': }
-    class {'python': }
+    class {'backend': }
     class {'services': }
   }
 }
