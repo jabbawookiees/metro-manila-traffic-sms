@@ -7,7 +7,7 @@ from flask import Flask, request
 app = Flask(__name__)
 queue = Queue(connection=Redis())
 
-globe = re.compile(r'You have just been shared P([0-9]+\.?[0-9]*) by (.+)\.')
+globe = re.compile(r'You have just been shared P([0-9]+\.?[0-9]*) by (.+?)\.')
 
 @app.route('/', strict_slashes=False)
 def receive_message():

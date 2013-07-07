@@ -11,8 +11,8 @@ def send_message(number, pk):
     headers = {
         'X-Kannel-Username': 'traffic',
         'X-Kannel-Password': 'ThisIsMySecretKannelPassword',
-        #'X-Kannel-SMSC': 'globetattoo',
-        'X-Kannel-SMSC': 'fakesmsc',
+        'X-Kannel-SMSC': 'smsc0',
+        #'X-Kannel-SMSC': 'fakesmsc',
         'X-Kannel-Coding': 0,
         'X-Kannel-From': '09154266531',
         'X-Kannel-To': number
