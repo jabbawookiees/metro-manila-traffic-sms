@@ -1,0 +1,13 @@
+# Ignore Mac OSX garbage
+.DS_Store
+
+# Ignore database file
+sqlite3.db
+
+# Ignore log file
+*.logs
+logs/*
+
+# Ignore compiled files
+*.pyc
+*.swp

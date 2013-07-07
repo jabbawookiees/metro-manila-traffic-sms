@@ -1,0 +1,7 @@
+# This is a udev rule file. Read about it online. You can do it!
+# http://www.reactivated.net/writing_udev_rules.html
+# http://unix.stackexchange.com/questions/25258/ttyusb0-permission-changes-after-restart
+# This file sets up permissions for USB GSM modems. They're set up such that kannel owns them.
+# We do it by hard coded IDs. I mean, how many different GSM modems will you have, anyway?
+
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="12d1", ATTRS{idProduct}=="1506", OWNER="kannel", MODE="0660"
