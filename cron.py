@@ -254,4 +254,4 @@ if __name__ == '__main__':
     connection = database.Connection()
     connection.initialize(messages)
     connection.update_messages(messages)
-    logging.debug('Finished updating messages')
+    logging.info('Finished updating messages')
